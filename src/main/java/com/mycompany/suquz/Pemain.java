@@ -10,30 +10,39 @@ package com.mycompany.suquz;
  */
 public class Pemain {
     private String nama;
-    private int hp;
-    private Pencocokan pilihanSuit;
-
-    public Pemain(String nama) {
+    private int hp = 100;
+    private String elemen;
+    private String pilihan;
+    
+    public Pemain(String nama){
         this.nama = nama;
     }
-
+    
+    public void setPilihan(String pilihan){
+        this.pilihan = pilihan;
+    }
+    
+    public void setElemen(String elemen){
+        this.elemen = elemen;
+    }
+    
+    public void setHp(int damage) {
+        this.hp -= damage;
+    }
+    
     public String getNama() {
         return nama;
     }
-
+    
     public int getHp() {
         return hp;
     }
     
-    public Pencocokan getPilihanSuit() {
-        return pilihanSuit;
+    public String getElemen() {
+        return elemen;
     }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    } 
     
-    public void setPilihanSuit(Pencocokan pilihanSuit) {
-        this.pilihanSuit = pilihanSuit;
+    public String getPilihan() {
+        return pilihan;
     }
 }
