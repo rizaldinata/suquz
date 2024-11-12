@@ -1,7 +1,46 @@
 @startuml
 
-class Element {
+class Player {
+    - name : String
+    - hp : int
+    - element : String
+    - choice : String
 
+    + Player(String name)
+    + getName() : String
+    + getHp() : int
+    + getElement() : String
+    + getChoice() : String
+    + makeChoice(choice: String): void
+    + chooseElement(element: String): void
+    + reduceHp(damage: int): void
 }
 
-class 
+class ElementInteraction {
+    + {static} isCritical(attacker: String, defender: String): boolean
+    + {static} isWeak(attacker: String, defender: String): boolean
+}
+
+class GameController {
+    - player1: Player
+    - player2: Player
+
+    + GameController(player1: Player, player2: Player)
+    + startGame(): void
+    + playRound(scanner: Scanner): void
+}
+
+class SuitLogic {
+    + {static} determineSuitWinner(p1: Player, p2: Player): int
+    + {static} calculateDamage(winner: Player, loser: Player): void
+}
+
+class Main { 
+    + void main(String[] args)
+}
+
+Player *---> GameController
+GameController ----> ElementInteraction
+SuitLogic o---- Player
+
+@enduml
